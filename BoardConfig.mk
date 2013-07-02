@@ -53,11 +53,6 @@ TARGET_RECOVERY_INITRC := device/samsung/galaxys4gmtd/rdisk/recovery.rc
 
 BOARD_MOBILEDATA_INTERFACE_NAME = "pdp0"
 
-# GCC 4.8 toolchain for arm-eabi
-ifeq ($(USE_SABERMOD_ARMEABI),true)
-  ARM_EABI_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin
-endif
-
 # Kernel Config
 TARGET_KERNEL_CONFIG := cyanogenmod_galaxys4gmtd_defconfig
 
