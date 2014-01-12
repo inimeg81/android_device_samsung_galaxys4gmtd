@@ -22,6 +22,8 @@ BOARD_USES_GENERIC_AUDIO := false
 
 BOARD_USES_LIBSECRIL_STUB := true
 
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mtune=cortex-a8 -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mtune=cortex-a8 -mfloat-abi=softfp
 TARGET_ARCH := arm
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
@@ -30,6 +32,20 @@ TARGET_CPU_VARIANT := cortex-a8
 ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_GCC_VERSION := 4.7
 TARGET_ARCH_LOWMEM := true
+ARCH_ARM_HAVE_ARMV7A := true
+
+TARGET_USE_LINARO_STRING_ROUTINES := true
+TARGET_USE_O3 := true
+TARGET_USE_GRAPHITE := true
+
+ARM_EABI_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.7/bin
+
+# Set to true for platforms with 32 byte L2 cache line.
+ARCH_ARM_HAVE_32_BYTE_CACHE_LINES := true
+# Allowing unaligned access for NEON memory instructions.
+ARCH_ARM_NEON_SUPPORTS_UNALIGNED_ACCESS := true
+# Sets the upper size limit for NEON unaligned memory access in memcpy.
+BIONIC_MEMCPY_ALIGNMENT_DIVIDER := 224
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
